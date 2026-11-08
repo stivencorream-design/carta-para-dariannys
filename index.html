@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para dariannys 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080812;
+    color: #fce4ec;
+    font-family: Georgia, serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+    font-family: cursive;
+    color: #ffb6d5;
+    font-size: 2rem;
+    margin: 25px;
+    text-shadow: 0 0 15px #ff4f9a;
+}
+
+.container {
+    width: 90%;
+    max-width: 550px;
+    text-align: center;
+}
+
+.envelope {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    margin: 50px auto;
+    background: #e8cdbb;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.envelope:hover {
+    transform: scale(1.04);
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 110px solid #d6b49d;
+    z-index: 2;
+}
+
+.heart {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 45px;
+    z-index: 3;
+}
+
+.envelope p {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    color: #6e3b48;
+    font-style: italic;
+}
+
+button {
+    background: #ff8fbd;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    color: #24101b;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 15px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ffc1dc;
+    transform: scale(1.05);
+}
+
+.letter {
+    display: none;
+    background: #f8e8d9;
+    color: #49332c;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: left;
+    line-height: 1.8;
+    animation: aparecer 1s ease;
+}
+
+.letter h2 {
+    text-align: center;
+    color: #c34e79;
+    margin-bottom: 20px;
+    font-family: cursive;
+}
+
+.letter p {
+    margin-bottom: 15px;
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    color: #c34e79;
+}
+
+.tree {
+    margin-top: 30px;
+    font-size: 100px;
+    animation: latido 2s infinite;
+}
+
+.timer {
+    margin-top: 20px;
+    font-size: 17px;
+    color: #ffc1dc;
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    animation: flotar 7s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes flotar {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes latido {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#sorpresa {
+    display: none;
+    font-size: 22px;
+    color: #ffb6d5;
+    margin: 20px;
+    font-family: cursive;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Para mi amorcito💗</h1>
+
+<div class="envelope" id="envelope" onclick="abrirCarta()">
+    <div class="heart">❤️</div>
+    <p>Una carta para ti...</p>
+</div>
+
+<button id="boton" onclick="abrirCarta()">
+    Abrir mi cartita 💌
+</button>
+
+<div class="letter" id="letter">
+
+    <h2>Para mi polola:</h2>
+
+    <p>
+        Hola queria decirte que si pudiera elegir un lugar seguro,
+        sería a tu lado.
+    </p>
+
+    <p>
+        Quiero que sepas que eres una persona
+        muy especial para mí. Me encanta compartir
+        momentos, como cuando salimos o cuando solo pasamos
+		el  rato en mi casa.
+    </p>
+
+    <p>
+        No necesito que todo sea perfecto,
+        solo quiero estar a tu lado.
+    </p>
+
+    <p>
+        Gracias por darme la oportunidad de
+		amarte y poder acompañarte, este año me
+		di cuenta de lo mucho que te amo, me encanta
+		tu forma de ser, tu risa, tu sonrisa, como te expresas
+		bueno en general me gusta todo de ti.
+        
+    </p>
+
+    <p>
+        Aunque a veces no encuentre las palabras
+        exactas o no tenga la valentia  de decirtelo,
+		quiero que sepas que te aprecio
+        muchísimo y que me haces muy feliz.
+    </p>
+
+    <p class="signature">
+        Con mucho cariño,<br>
+        Stiven ❤️
+    </p>
+
+    <div class="tree">💗🌳💗</div>
+
+    <div class="timer">
+        Nuestro amor comenzo hace...<br>
+        <span id="contador">Un tiempo muy especial ❤️</span>
+    </div>
+
+    <div style="text-align:center">
+        <button onclick="mostrarSorpresa()">
+            Una última sorpresa 💕
+        </button>
+    </div>
+
+    <div id="sorpresa">
+        Eres una de mis personas favorita,
+		y estoy dispuesto a mejorar para ti, para
+		que tengas la mejor version de mi. ❤️
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+// CAMBIA ESTA FECHA POR EL DÍA
+// EN QUE COMENZÓ SU RELACIÓN.
+// Formato: Año, mes (0-11), día.
+
+const fechaInicio = new Date(2025, 9, 23);
+
+function abrirCarta() {
+    document.getElementById("envelope").style.display = "none";
+    document.getElementById("boton").style.display = "none";
+
+    document.getElementById("letter").style.display = "block";
+}
+
+function mostrarSorpresa() {
+    document.getElementById("sorpresa").style.display = "block";
+}
+
+function actualizarContador() {
+    const ahora = new Date();
+    let diferencia = ahora - fechaInicio;
+
+    if (diferencia < 0) {
+        document.getElementById("contador").innerText =
+            "Nuestra historia apenas comienza ❤️";
+        return;
+    }
+
+    const segundos = Math.floor(diferencia / 1000);
+    const dias = Math.floor(segundos / 86400);
+    const horas = Math.floor((segundos % 86400) / 3600);
+    const minutos = Math.floor((segundos % 3600) / 60);
+    const seg = segundos % 60;
+
+    document.getElementById("contador").innerText =
+        `${dias} días, ${horas} horas, ${minutos} minutos y ${seg} segundos ❤️`;
+}
+
+setInterval(actualizarContador, 1000);
+actualizarContador();
+
+// Corazones flotantes
+
+function crearCorazon() {
+    const corazon = document.createElement("div");
+
+    corazon.className = "floating-heart";
+    corazon.innerHTML = ["❤️", "💗", "💕", "💖", "💘"][
+        Math.floor(Math.random() * 5)
+    ];
+
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 10000);
+}
+
+setInterval(crearCorazon, 500);
+
+</script>
+
+</body>
+</html>
